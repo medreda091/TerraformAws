@@ -19,9 +19,9 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Projet       = var.nom_projet
+      Projet        = var.nom_projet
       Environnement = var.environnement
-      GéréPar      = "terraform"
+      GéréPar       = "terraform"
     }
   }
 }

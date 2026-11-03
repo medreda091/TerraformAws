@@ -34,21 +34,21 @@ resource "aws_security_group" "base" {
 }
 
 resource "aws_db_instance" "principale" {
-  identifier             = "${var.nom_projet}-${var.environnement}-bd"
-  engine                 = "mysql"
-  engine_version         = "8.0"
-  instance_class         = var.classe_base
-  allocated_storage      = 20
-  db_name                = "application"
-  username               = var.utilisateur_base
-  password               = var.mot_de_passe_base
-  db_subnet_group_name   = aws_db_subnet_group.principal.name
-  vpc_security_group_ids = [aws_security_group.base.id]
-  publicly_accessible    = false
-  multi_az               = var.multi_az
+  identifier              = "${var.nom_projet}-${var.environnement}-bd"
+  engine                  = "mysql"
+  engine_version          = "8.0"
+  instance_class          = var.classe_base
+  allocated_storage       = 20
+  db_name                 = "application"
+  username                = var.utilisateur_base
+  password                = var.mot_de_passe_base
+  db_subnet_group_name    = aws_db_subnet_group.principal.name
+  vpc_security_group_ids  = [aws_security_group.base.id]
+  publicly_accessible     = false
+  multi_az                = var.multi_az
   backup_retention_period = 7
-  skip_final_snapshot    = true
-  storage_encrypted      = true
+  skip_final_snapshot     = true
+  storage_encrypted       = true
 
   tags = {
     Name = "${var.nom_projet}-${var.environnement}-bd"
